@@ -163,7 +163,7 @@ const BeritaAcara = () => {
             &larr; Back to Sprindik
           </button>
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className="page-header">
             <div>
               {!loading && (
                 <h2 style={{ color: 'var(--primary-color)' }}>
@@ -174,7 +174,7 @@ const BeritaAcara = () => {
             
             {isAdmin && (
               <button 
-                className="btn btn-primary" 
+                className="btn btn-primary responsive-btn" 
                 onClick={openModal}
               >
                 Add New Berita Acara
