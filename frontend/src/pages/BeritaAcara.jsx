@@ -336,6 +336,7 @@ const BeritaAcara = () => {
                   value={formData.deskripsi}
                   onChange={handleInputChange}
                   rows={4}
+                  style={{ resize: 'none' }}
                   required
                 />
               </div>
