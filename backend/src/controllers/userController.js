@@ -50,6 +50,57 @@ const register = async (req, res, next) => {
 };
 
 /**
+ * Create a new user (admin function)
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @param {Function} next - Express next function
+ */
+const createUser = async (req, res, next) => {
+  try {
+    const { username, password, role } = req.body;
+    
+    // Validate input
+    if (!username || !password) {
+      return res.status(400).json({
+        success: false,
+        message: 'Username dan password wajib diisi'
+      });
+    }
+
+    if (password.length < 6) {
+      return res.status(400).json({
+        success: false,
+        message: 'Password minimal 6 karakter'
+      });
+    }
+    
+    // Check if username already exists
+    const existingUser = await userService.getUserByUsername(username);
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: 'Username sudah digunakan'
+      });
+    }
+    
+    // Create user
+    const userId = await userService.createUser({
+      username,
+      password,
+      role: role || ROLES.VIEWER // Default to viewer if role not provided
+    });
+    
+    res.status(201).json({
+      success: true,
+      message: 'User berhasil ditambahkan',
+      data: { id: userId, username, role: role || ROLES.VIEWER }
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
  * Login user
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
@@ -249,6 +300,7 @@ const getProfile = (req, res) => {
 
 module.exports = {
   register,
+  createUser,
   login,
   logout,
   getAllUsers,
