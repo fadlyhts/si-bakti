@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { PuffLoader } from 'react-spinners';
 import { getBAsaBySprindikId, getSprindikById, createBA, updateBA, deleteBA } from '../services/api';
 import { getAuthenticatedFileUrl } from '../services/fileService';
 import Navbar from '../components/Navbar';
@@ -163,9 +164,11 @@ const BeritaAcara = () => {
           </button>
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <h2 style={{ color: 'var(--primary-color)' }}>
-              Berita Acara_{sprindikData?.judul_sprindik || sprindikId}
-            </h2>
+            {!loading && (
+              <h2 style={{ color: 'var(--primary-color)' }}>
+                Berita Acara_{sprindikData?.judul_sprindik}
+              </h2>
+            )}
             
             {isAdmin && (
               <button 
@@ -191,7 +194,28 @@ const BeritaAcara = () => {
         )}
         
         {loading ? (
-          <div>Loading data...</div>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '3rem',
+            flexDirection: 'column',
+            gap: '1rem'
+          }}>
+            <PuffLoader
+              color="var(--primary-color)"
+              loading={true}
+              size={50}
+              aria-label="Loading Data"
+            />
+            <div style={{
+              color: 'var(--primary-color)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }}>
+              Loading data...
+            </div>
+          </div>
         ) : (
           <div className="table-container">
             <table className="table">
