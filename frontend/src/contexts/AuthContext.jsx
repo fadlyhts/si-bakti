@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login as loginApi, logout as logoutApi, getProfile } from '../services/authService';
+import Loading from '../components/Loading';
 
 const AuthContext = createContext();
 
@@ -66,8 +67,13 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     isAuthenticated: !!user,
-    isAdmin: user?.role === 1 // Assuming role 1 is admin
+    isAdmin: user?.role === 1 // Role 1 is SUPERADMIN
   };
+
+  // Show loading screen while checking authentication
+  if (loading) {
+    return <Loading />;
+  }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
