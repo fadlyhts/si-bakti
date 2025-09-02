@@ -197,11 +197,13 @@ const Asset = () => {
           </button>
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            {!loading && (
-              <h2 style={{ color: 'var(--primary-color)' }}>
-                Asset_{baData?.judul_ba}
-              </h2>
-            )}
+            <div>
+              {!loading && (
+                <h2 style={{ color: 'var(--primary-color)' }}>
+                  Asset_{baData?.judul_ba}
+                </h2>
+              )}
+            </div>
             
             {isAdmin && (
               <button 
