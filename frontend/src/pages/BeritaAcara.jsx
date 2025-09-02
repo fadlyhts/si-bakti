@@ -164,11 +164,13 @@ const BeritaAcara = () => {
           </button>
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            {!loading && (
-              <h2 style={{ color: 'var(--primary-color)' }}>
-                Berita Acara_{sprindikData?.judul_sprindik}
-              </h2>
-            )}
+            <div>
+              {!loading && (
+                <h2 style={{ color: 'var(--primary-color)' }}>
+                  Berita Acara_{sprindikData?.judul_sprindik}
+                </h2>
+              )}
+            </div>
             
             {isAdmin && (
               <button 
