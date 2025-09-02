@@ -164,11 +164,13 @@ const Sprindik = () => {
           </button>
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            {!loading && (
-              <h2 style={{ color: 'var(--primary-color)' }}>
-                Sprindik LP_{lpData?.nama}
-              </h2>
-            )}
+            <div>
+              {!loading && (
+                <h2 style={{ color: 'var(--primary-color)' }}>
+                  Sprindik LP_{lpData?.nama}
+                </h2>
+              )}
+            </div>
             
             {isAdmin && (
               <button 
