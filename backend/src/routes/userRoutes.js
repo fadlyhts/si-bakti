@@ -16,6 +16,13 @@ const router = express.Router();
 router.post('/register', isAuthenticated, hasRole(ROLES.SUPERADMIN), userController.register);
 
 /**
+ * @route   POST /api/users/create
+ * @desc    Create a new user (superadmin function)
+ * @access  Superadmin only
+ */
+router.post('/create', isAuthenticated, hasRole(ROLES.SUPERADMIN), userController.createUser);
+
+/**
  * @route   POST /api/users/login
  * @desc    Login user
  * @access  Public
