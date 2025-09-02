@@ -27,6 +27,15 @@ export const registerUser = async (userData) => {
   }
 };
 
+export const createUser = async (userData) => {
+  try {
+    const response = await api.post('/users/register', userData);
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : { message: 'Network error' };
+  }
+};
+
 export const updateUser = async (id, userData) => {
   try {
     const response = await api.put(`/users/${id}`, userData);
