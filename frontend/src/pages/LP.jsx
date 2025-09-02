@@ -97,12 +97,12 @@ const LP = () => {
       <Navbar />
       
       <div className="container" style={{ padding: '2rem 0' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }} className="page-header">
           <h2 style={{ color: 'var(--primary-color)' }}>LP</h2>
           
           {isAdmin && (
             <button 
-              className="btn btn-primary" 
+              className="btn btn-primary responsive-btn" 
               onClick={openModal}
             >
               Add New LP
