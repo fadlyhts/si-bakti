@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PuffLoader } from 'react-spinners';
 import { getAllLPs, createLP, updateLP, deleteLP } from '../services/api';
 import Navbar from '../components/Navbar';
 import { useAuth } from '../contexts/AuthContext';
@@ -122,7 +123,28 @@ const LP = () => {
         )}
         
         {loading ? (
-          <div>Loading LP data...</div>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '3rem',
+            flexDirection: 'column',
+            gap: '1rem'
+          }}>
+            <PuffLoader
+              color="var(--primary-color)"
+              loading={true}
+              size={50}
+              aria-label="Loading Data"
+            />
+            <div style={{
+              color: 'var(--primary-color)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }}>
+              Loading LP data...
+            </div>
+          </div>
         ) : (
           <div className="table-container">
             <table className={`table lp-table ${isAdmin ? 'admin-mode' : 'viewer-mode'}`}>
