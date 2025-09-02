@@ -543,15 +543,71 @@ body {
 }
 
 .dropdown-item {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: var(--text-dark);
-  text-decoration: none;
-  cursor: pointer;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0.5rem 1rem !important;
+  color: var(--text-dark) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  border: none !important;
+  background: none !important;
+  width: 100% !important;
+  text-align: left !important;
+  transition: background-color 0.3s !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: normal !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  text-shadow: none !important;
+}
+
+.admin-menu-item {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Reset button specific styles */
+.dropdown-item[type="button"] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Ensure consistent icon and text alignment */
+.dropdown-item span:first-child {
+  width: 24px !important;
+  height: 24px !important;
+  text-align: center !important;
+  margin-right: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1rem !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.dropdown-item span:last-child {
+  flex: 1 !important;
+  text-align: left !important;
+  color: var(--text-dark) !important;
+  line-height: normal !important;
+  text-shadow: none !important;
 }
 
 .dropdown-item:hover {
-  background-color: var(--light-color);
+  background-color: var(--light-color) !important;
+}
+
+/* Special hover for logout */
+.dropdown-item.logout-item:hover {
+  background-color: #f8d7da !important;
+}
+
+/* Specific color for logout button */
+.dropdown-item.logout-item span:last-child {
+  color: #dc3545 !important;
 }
 
 /* Responsive Design */
@@ -846,6 +902,47 @@ body {
     max-width: 280px !important;
   }
   
+  /* Ensure dropdown menu items are properly aligned */
+  .dropdown-item,
+  .admin-menu-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.6rem 1rem !important;
+    font-size: 0.9rem !important;
+    line-height: normal !important;
+    margin: 0 !important;
+    border: none !important;
+    background: none !important;
+    text-decoration: none !important;
+  }
+  
+  .dropdown-item span:first-child,
+  .admin-menu-item span:first-child {
+    width: 24px !important;
+    height: 24px !important;
+    text-align: center !important;
+    margin-right: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .dropdown-item span:last-child,
+  .admin-menu-item span:last-child {
+    flex: 1 !important;
+    text-align: left !important;
+    color: var(--text-dark) !important;
+    line-height: normal !important;
+    text-shadow: none !important;
+  }
+  
+  .dropdown-item.logout-item span:last-child {
+    color: #dc3545 !important;
+  }
+  
   /* PDF viewer modal adjustments */
   .pdf-viewer-container {
     height: 400px !important;
@@ -864,4 +961,76 @@ body {
 .table td:nth-child(5) {
   text-align: center !important;
   vertical-align: middle !important;
+}
+
+/* Mobile Dropdown Fix - Ensure perfect alignment */
+@media (max-width: 768px) {
+  /* Override any conflicting mobile styles for dropdown items */
+  .dropdown-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.6rem 1rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: none !important;
+    text-decoration: none !important;
+    color: var(--text-dark) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    text-shadow: none !important;
+  }
+  
+  .dropdown-item span:first-child {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    text-align: center !important;
+    margin-right: 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.1rem !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+  }
+  
+  .dropdown-item span:last-child {
+    flex: 1 !important;
+    text-align: left !important;
+    color: var(--text-dark) !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-shadow: none !important;
+  }
+  
+  /* Specific logout item color */
+  .dropdown-item.logout-item span:last-child {
+    color: #dc3545 !important;
+  }
+  
+  /* Ensure button and link items are exactly the same */
+  .dropdown-item[type="button"],
+  .dropdown-item.admin-menu-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.6rem 1rem !important;
+    margin: 0 !important;
+    border: none !important;
+    background: none !important;
+    width: 100% !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    font-family: inherit !important;
+    font-size: 0.9rem !important;
+    line-height: 1.2 !important;
+    color: var(--text-dark) !important;
+  }
 }
