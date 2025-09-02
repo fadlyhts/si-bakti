@@ -301,38 +301,19 @@ const Navbar = () => {
                             </div>
                             <Link 
                               to="/lp" 
-                              className="dropdown-item"
+                              className="dropdown-item admin-menu-item"
                               onClick={closeDropdown}
-                              style={{
-                                display: 'block',
-                                padding: '0.5rem 1rem',
-                                color: 'var(--text-dark)',
-                                textDecoration: 'none',
-                                transition: 'background-color 0.3s'
-                              }}
-                              onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--light-color)'}
-                              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
                             >
-                              📋 Manage LP
+                              <span>📋</span>
+                              <span>Manage LP</span>
                             </Link>
                             <button
+                              type="button"
                               onClick={openAddUserModal}
-                              className="dropdown-item"
-                              style={{
-                                display: 'block',
-                                width: '100%',
-                                padding: '0.5rem 1rem',
-                                color: 'var(--text-dark)',
-                                background: 'none',
-                                border: 'none',
-                                textAlign: 'left',
-                                cursor: 'pointer',
-                                transition: 'background-color 0.3s'
-                              }}
-                              onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--light-color)'}
-                              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                              className="dropdown-item admin-menu-item"
                             >
-                              👤 Tambah User
+                              <span>👤</span>
+                              <span>Tambah User</span>
                             </button>
                             <hr style={{ margin: '0.5rem 0', border: 'none', borderTop: '1px solid #eee' }} />
                           </>
@@ -340,23 +321,12 @@ const Navbar = () => {
 
                         {/* Logout Button */}
                         <button 
+                          type="button"
                           onClick={handleLogout} 
-                          className="dropdown-item"
-                          style={{
-                            display: 'block',
-                            width: '100%',
-                            padding: '0.5rem 1rem',
-                            color: '#dc3545',
-                            background: 'none',
-                            border: 'none',
-                            textAlign: 'left',
-                            cursor: 'pointer',
-                            transition: 'background-color 0.3s'
-                          }}
-                          onMouseEnter={(e) => e.target.style.backgroundColor = '#f8d7da'}
-                          onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                          className="dropdown-item admin-menu-item logout-item"
                         >
-                          🚪 Logout
+                          <span>🚪</span>
+                          <span>Logout</span>
                         </button>
                       </div>
                     </>
