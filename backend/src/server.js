@@ -20,8 +20,39 @@ const fileRoutes = require('./routes/fileRoutes');
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://localhost:3000',
+  process.env.FRONTEND_URL, // Allow environment variable override
+];
+
+// Add all easypanel.host subdomains in production
+if (process.env.NODE_ENV === 'production') {
+  allowedOrigins.push(/\.easypanel\.host$/);
+}
+
 app.use(cors({
-  origin: 'http://localhost:3000', // Frontend URL
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Check if origin matches any allowed origins
+    const isAllowed = allowedOrigins.some(allowedOrigin => {
+      if (typeof allowedOrigin === 'string') {
+        return origin === allowedOrigin;
+      } else if (allowedOrigin instanceof RegExp) {
+        return allowedOrigin.test(origin);
+      }
+      return false;
+    });
+    
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      console.log('CORS blocked origin:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true // Allow credentials (cookies, authorization headers)
 }));
 app.use(express.json());
