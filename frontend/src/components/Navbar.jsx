@@ -117,6 +117,7 @@ const Navbar = () => {
                     borderRadius: '3px',
                     filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))'
                   }} 
+                  className="logo-image"
                 />
                 <img 
                   src={widyabaktiLogo} 
@@ -127,6 +128,7 @@ const Navbar = () => {
                     borderRadius: '3px',
                     filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))'
                   }} 
+                  className="logo-image"
                 />
               </div>
               {/* Brand Text */}
