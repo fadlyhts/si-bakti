@@ -150,16 +150,16 @@ const LP = () => {
             <table className={`table lp-table ${isAdmin ? 'admin-mode' : 'viewer-mode'}`}>
               <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>No.</th>
                   <th>Name</th>
                   {isAdmin && <th>Actions</th>}
                 </tr>
               </thead>
               <tbody>
                 {lps.length > 0 ? (
-                  lps.map((lp) => (
+                  lps.map((lp, index) => (
                     <tr key={lp.id}>
-                      <td>{lp.id}</td>
+                      <td>{index + 1}</td>
                       <td 
                         style={{ cursor: 'pointer', color: 'var(--primary-color)' }}
                         onClick={() => handleLPClick(lp.id)}
