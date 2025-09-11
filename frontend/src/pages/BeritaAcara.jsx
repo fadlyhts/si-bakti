@@ -223,7 +223,7 @@ const BeritaAcara = () => {
             <table className="table">
               <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>No.</th>
                   <th>Title</th>
                   <th>Description</th>
                   <th>PDF</th>
@@ -232,9 +232,9 @@ const BeritaAcara = () => {
               </thead>
               <tbody>
                 {bas.length > 0 ? (
-                  bas.map((ba) => (
+                  bas.map((ba, index) => (
                     <tr key={ba.id}>
-                      <td>{ba.id}</td>
+                      <td>{index + 1}</td>
                       <td>{ba.judul_ba}</td>
                       <td className="text-wrap">{ba.deskripsi}</td>
                       <td>
