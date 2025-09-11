@@ -223,7 +223,7 @@ const Sprindik = () => {
             <table className="table">
               <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>No.</th>
                   <th>Title</th>
                   <th>Description</th>
                   <th>PDF</th>
@@ -232,9 +232,9 @@ const Sprindik = () => {
               </thead>
               <tbody>
                 {sprindiks.length > 0 ? (
-                  sprindiks.map((sprindik) => (
+                  sprindiks.map((sprindik, index) => (
                     <tr key={sprindik.id}>
-                      <td>{sprindik.id}</td>
+                      <td>{index + 1}</td>
                       <td>{sprindik.judul_sprindik}</td>
                       <td className="text-wrap">{sprindik.deskripsi}</td>
                       <td>
