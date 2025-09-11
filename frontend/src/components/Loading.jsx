@@ -1,7 +1,7 @@
 import React from 'react';
 import { PuffLoader } from 'react-spinners';
+import faviconLogo from '../assets/favicon.jpg';
 import lanriLogo from '../assets/lanri.png';
-import widyabaktiLogo from '../assets/widyabakti.png';
 
 const Loading = () => {
   return (
@@ -21,64 +21,66 @@ const Loading = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '2rem',
+        gap: '1.5rem',
         padding: '2rem',
-        background: 'rgba(255, 255, 255, 0.9)',
-        borderRadius: '16px',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-        backdropFilter: 'blur(10px)',
-        border: '1px solid rgba(255, 255, 255, 0.2)'
+        background: 'white',
+        borderRadius: '8px',
+        width: '100%',
+        maxWidth: '400px',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        margin: '0 auto',
+        position: 'relative'
       }}>
-        {/* Logo Section */}
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          alignItems: 'center', 
-          gap: '1rem'
+        {/* LANRI Logo - Small at top right corner like login form */}
+        <img
+          src={lanriLogo}
+          alt="LANRI Logo"
+          style={{
+            position: 'absolute',
+            top: '15px',
+            right: '15px',
+            height: '35px',
+            width: 'auto',
+            borderRadius: '4px',
+            filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))',
+            zIndex: 10
+          }}
+        />
+        {/* Logo Section - Centered like login page */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: '1.5rem',
+          marginTop: '1rem'
         }}>
-          <img 
-            src={lanriLogo} 
-            alt="LANRI Logo" 
-            style={{ 
-              height: '50px', 
+          <img
+            src={faviconLogo}
+            alt="SI-BAKTI Logo"
+            style={{
+              height: '70px',
               width: 'auto',
-              borderRadius: '6px',
-              filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))'
-            }} 
-          />
-          <img 
-            src={widyabaktiLogo} 
-            alt="Widya Bakti Logo" 
-            style={{ 
-              height: '50px', 
-              width: 'auto',
-              borderRadius: '6px',
-              filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))'
-            }} 
+              borderRadius: '8px',
+              filter: 'drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2))'
+            }}
           />
         </div>
         
-        {/* App Title */}
-        <div style={{
-          textAlign: 'center'
+        {/* App Title - Matching login page */}
+        <h2 style={{
+          textAlign: 'center',
+          marginBottom: '0.5rem',
+          color: 'var(--primary-color)'
         }}>
-          <h2 style={{ 
-            margin: '0 0 0.5rem 0',
-            color: 'var(--primary-color)',
-            fontSize: '1.8rem',
-            fontWeight: 'bold'
-          }}>
-            SI-BAKTI
-          </h2>
-          <p style={{
-            margin: 0,
-            color: 'var(--accent-color)',
-            fontSize: '1rem',
-            fontWeight: '500'
-          }}>
-            Sistem Informasi Barang Bukti
-          </p>
-        </div>
+          SI-BAKTI
+        </h2>
+        <h4 style={{
+          textAlign: 'center',
+          marginBottom: '2rem',
+          color: 'var(--accent-color)'
+        }}>
+          SISTEM INFORMASI BARANG BUKTI PENYIDIKAN TINDAK PIDANA KORUPSI
+        </h4>
         
         {/* React Spinner */}
         <PuffLoader
