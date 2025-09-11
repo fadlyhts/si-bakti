@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { createUser } from '../services';
 import lanriLogo from '../assets/lanri.png';
-import widyabaktiLogo from '../assets/widyabakti.png';
+import faviconLogo from '../assets/favicon.jpg';
 
 const Navbar = () => {
   const { user, logout, isAdmin } = useAuth();
@@ -101,45 +101,38 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar" style={{ padding: '0.5rem 0' }}>
         <div className="container navbar-content">
           {/* Brand */}
           <Link to="/lp" className="navbar-brand">
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
-              {/* Logo Images */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                <img 
-                  src={lanriLogo} 
-                  alt="LANRI Logo" 
-                  style={{ 
-                    height: '25px', 
-                    width: 'auto',
-                    borderRadius: '3px',
-                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))'
-                  }} 
-                  className="logo-image"
-                />
-                <img 
-                  src={widyabaktiLogo} 
-                  alt="Widya Bakti Logo" 
-                  style={{ 
-                    height: '25px', 
-                    width: 'auto',
-                    borderRadius: '3px',
-                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))'
-                  }} 
-                  className="logo-image"
-                />
-              </div>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '0.25rem',
+              position: 'relative'
+            }}>
+              {/* Favicon above SI-BAKTI */}
+              <img
+                src={faviconLogo}
+                alt="Favicon"
+                style={{
+                  height: '50px',
+                  width: '50px',
+                  borderRadius: '3px',
+                  filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))'
+                }}
+                className="logo-image"
+              />
               {/* Brand Text */}
               <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
-                <span style={{ 
-                  fontWeight: 'bold', 
+                <span style={{
+                  fontWeight: 'bold',
                   fontSize: '1rem',
                   textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
                 }}>SI-BAKTI</span>
-                <span style={{ 
-                  fontSize: '0.65rem', 
+                <span style={{
+                  fontSize: '0.65rem',
                   opacity: 0.8,
                   textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)'
                 }}>
@@ -149,8 +142,13 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* Navigation Menu */}
-          <div className="navbar-menu">
+          {/* Navigation Menu - Positioned to match screenshot */}
+          <div className="navbar-menu" style={{
+            position: 'absolute',
+            right: '50px',
+            top: '50%',
+            transform: 'translateY(-50%)'
+          }}>
             <ul style={{ 
               display: 'flex', 
               listStyle: 'none', 
@@ -166,24 +164,11 @@ const Navbar = () => {
                   style={{ 
                     color: 'var(--text-light)', 
                     textDecoration: 'none',
-                    padding: '0.4rem 0.8rem',
-                    borderRadius: '4px',
-                    transition: 'all 0.3s ease',
+                    padding: '0.3rem 0.6rem',
                     fontSize: '0.9rem',
-                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
-                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = 'rgba(255,255,255,0.15)';
-                    e.target.style.textShadow = '0 2px 4px rgba(0, 0, 0, 0.3)';
-                    e.target.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
-                    e.target.style.transform = 'translateY(-1px)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.textShadow = '0 1px 2px rgba(0, 0, 0, 0.2)';
-                    e.target.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
-                    e.target.style.transform = 'translateY(0)';
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.25rem'
                   }}
                 >
                   📋 LP
@@ -335,6 +320,22 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* LANRI Logo - positioned at the very top right edge */}
+        <div style={{
+          position: 'absolute',
+          right: '0',
+          top: '0'
+        }}>
+          <img
+            src={lanriLogo}
+            alt="LANRI Logo"
+            style={{
+              height: '40px',
+              width: 'auto'
+            }}
+          />
         </div>
       </nav>
 
