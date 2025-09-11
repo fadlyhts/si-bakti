@@ -273,7 +273,7 @@ const Asset = () => {
             <table className="table asset-table">
               <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>No.</th>
                   <th>Title</th>
                   <th>Category</th>
                   <th>Description</th>
@@ -283,9 +283,9 @@ const Asset = () => {
               </thead>
               <tbody>
                 {assets.length > 0 ? (
-                  assets.map((asset) => (
+                  assets.map((asset, index) => (
                     <tr key={asset.id}>
-                      <td>{asset.id}</td>
+                      <td>{index + 1}</td>
                       <td>{asset.judul_aset}</td>
                       <td>
                         {asset.kategori_asset === 1 ? 'Bergerak' : 'Tidak Bergerak'}
