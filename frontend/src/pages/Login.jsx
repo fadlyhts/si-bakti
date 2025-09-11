@@ -88,7 +88,7 @@ const Login = () => {
             src={faviconLogo} 
             alt="SI-BAKTI Logo" 
             style={{ 
-              height: '80px', 
+              height: '100px', 
               width: 'auto',
               borderRadius: '8px',
               filter: 'drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2))'
@@ -96,15 +96,15 @@ const Login = () => {
           />
         </div>
         
-        <h2 style={{ 
-          textAlign: 'center', 
-          marginBottom: '2rem',
+        <h2 style={{
+          textAlign: 'center',
+          marginBottom: '0.5rem',
           color: 'var(--primary-color)'
         }}>
           SI-BAKTI
         </h2>
-        <h4 style={{ 
-          textAlign: 'center', 
+        <h4 style={{
+          textAlign: 'center',
           marginBottom: '2rem',
           color: 'var(--accent-color)'
         }}>
