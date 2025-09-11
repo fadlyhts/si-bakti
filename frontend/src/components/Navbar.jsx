@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { createUser } from '../services';
 import lanriLogo from '../assets/lanri.png';
 import faviconLogo from '../assets/favicon.jpg';
+import widyaLogo from '../assets/widyabakti.png';
 
 const Navbar = () => {
   const { user, logout, isAdmin } = useAuth();
@@ -112,18 +113,33 @@ const Navbar = () => {
               gap: '0.25rem',
               position: 'relative'
             }}>
-              {/* Favicon above SI-BAKTI */}
-              <img
-                src={faviconLogo}
-                alt="Favicon"
-                style={{
-                  height: '50px',
-                  width: '50px',
-                  borderRadius: '3px',
-                  filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))'
-                }}
-                className="logo-image"
-              />
+              {/* Logos side by side */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}>
+                <img
+                  src={faviconLogo}
+                  alt="TIPIDKOR Logo"
+                  style={{
+                    height: '50px',
+                    width: '50px',
+                    borderRadius: '3px',
+                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))'
+                  }}
+                  className="logo-image"
+                />
+                <img
+                  src={widyaLogo}
+                  alt="Widya Bakti Logo"
+                  style={{
+                    height: '40px',
+                    width: 'auto',
+                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))'
+                  }}
+                />
+              </div>
               {/* Brand Text */}
               <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
                 <span style={{
