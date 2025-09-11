@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import lanriLogo from '../assets/lanri.png';
-import widyabaktiLogo from '../assets/widyabakti.png';
+import faviconLogo from '../assets/favicon.jpg';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -47,8 +47,9 @@ const Login = () => {
       display: 'flex', 
       alignItems: 'center', 
       justifyContent: 'center',
-      backgroundColor: 'var(--light-color)' 
+      backgroundColor: 'var(--light-color)'
     }}>
+      
       <div className="card" style={{ 
         maxWidth: '400px', 
         width: '100%', 
@@ -56,34 +57,41 @@ const Login = () => {
         boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
         borderRadius: '8px',
         backgroundColor: 'white',
-        margin: '0 auto'
+        margin: '0 auto',
+        position: 'relative'
       }}>
-        {/* Logo Section */}
+        {/* LANRI Logo - Small at top right corner of the form */}
+        <img 
+          src={lanriLogo} 
+          alt="LANRI Logo" 
+          style={{ 
+            position: 'absolute',
+            top: '15px',
+            right: '15px',
+            height: '35px', 
+            width: 'auto',
+            borderRadius: '4px',
+            filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))',
+            zIndex: 10
+          }} 
+        />
+        
+        {/* Favicon Logo - Centered */}
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center', 
-          alignItems: 'center', 
-          gap: '1rem', 
-          marginBottom: '1.5rem' 
+          alignItems: 'center',
+          marginBottom: '1.5rem',
+          marginTop: '1rem'
         }}>
           <img 
-            src={lanriLogo} 
-            alt="LANRI Logo" 
+            src={faviconLogo} 
+            alt="SI-BAKTI Logo" 
             style={{ 
-              height: '60px', 
+              height: '80px', 
               width: 'auto',
-              borderRadius: '6px',
-              filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))'
-            }} 
-          />
-          <img 
-            src={widyabaktiLogo} 
-            alt="Widya Bakti Logo" 
-            style={{ 
-              height: '60px', 
-              width: 'auto',
-              borderRadius: '6px',
-              filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))'
+              borderRadius: '8px',
+              filter: 'drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2))'
             }} 
           />
         </div>
@@ -100,7 +108,7 @@ const Login = () => {
           marginBottom: '2rem',
           color: 'var(--accent-color)'
         }}>
-          Login to Access System
+          SISTEM INFORMASI BARANG BUKTI PENYIDIKAN TINDAK PIDANA KORUPSI
         </h4>
         
         {error && (
