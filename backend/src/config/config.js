@@ -3,6 +3,8 @@
  * Loads environment variables from .env file
  */
 require('dotenv').config();
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
 
 const config = {
   // Database configuration
@@ -19,6 +21,30 @@ const config = {
     port: parseInt(process.env.PORT || '5000', 10),
     env: process.env.NODE_ENV || 'development',
     baseUrl: process.env.BASE_URL || 'http://localhost:5000'
+  },
+  
+  // Session store configuration
+  getSessionStore: () => {
+    const sessionStoreOptions = {
+      host: process.env.DB_HOST || 'localhost',
+      port: parseInt(process.env.DB_PORT || '3306', 10),
+      user: process.env.DB_USER || 'root',
+      password: process.env.DB_PASSWORD || '',
+      database: process.env.DB_NAME || '',
+      clearExpired: true,
+      checkExpirationInterval: 900000, // 15 minutes
+      expiration: 86400000, // 1 day
+      createDatabaseTable: true, // Automatically create sessions table
+      schema: {
+        tableName: 'sessions',
+        columnNames: {
+          session_id: 'session_id',
+          expires: 'expires',
+          data: 'data'
+        }
+      }
+    };
+    return new MySQLStore(sessionStoreOptions);
   },
   
   // Session configuration

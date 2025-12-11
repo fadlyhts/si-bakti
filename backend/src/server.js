@@ -58,8 +58,12 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session middleware
-app.use(session(config.session));
+// Session middleware with MySQL store
+const sessionConfig = {
+  ...config.session,
+  store: config.getSessionStore()
+};
+app.use(session(sessionConfig));
 
 // Protected file serving route (replaces direct static file access)
 app.use('/files', fileRoutes);
