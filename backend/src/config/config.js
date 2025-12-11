@@ -26,11 +26,13 @@ const config = {
     secret: process.env.SESSION_SECRET || '',
     resave: false,
     saveUninitialized: false,
+    name: 'sibakti.sid', // Custom session name
     cookie: {
       secure: true, // Required for sameSite: 'none'
       sameSite: 'none', // Required for cross-origin cookies
       httpOnly: true, // Prevent XSS attacks
-      maxAge: 24 * 60 * 60 * 1000 // 1 day
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+      path: '/' // Ensure cookie is sent for all paths
     }
   },
   
